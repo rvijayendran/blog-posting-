@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block base_title %}blog{% endblock %}</title>
+
+    {% block css_style %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        {% block header_tag %}{% endblock header_tag %}
+    </header>
+
+    <main>
+        {% block content_page %}{% endblock %}
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

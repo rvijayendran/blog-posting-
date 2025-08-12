@@ -1,0 +1,29 @@
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'post/css files/header.css' %}">
+
+<header class="site-header">
+    <nav class="main-nav container">
+        <div class="nav-left">
+            <a href="{% url 'home' %}" class="logo">VR Vijayendran</a>
+            <ul class="nav-links">
+                <li><a href="{% url 'all_post' %}">All Posts</a></li>
+                {% if session_slug %}
+                    <li><a href="{% url 'post' session_slug %}">Read Later</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <div class="nav-actions">
+                {% if user.is_authenticated %}
+                    <span class="btn btn-disabled">Logged In</span>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn">Login</a>
+                {% endif %}
+                <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </nav>
+</header>

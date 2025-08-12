@@ -1,0 +1,470 @@
+/*
+  ========================================
+  Custom Styles for the Post Page
+  ========================================
+*/
+
+/* --- Variable Definitions -- */
+:root {
+    --brand: #6366f1;
+    --brand-secondary: #ec4899;
+    --text-lightest: #f8fafc;
+    --text-muted: #94a3b8;
+    --surface-dark: #1e293b;
+    --bg-color: #0f172a;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    background: var(--bg-color) !important;
+    color: var(--text-lightest) !important;
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.6;
+}
+
+/* --- Main Content Container --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+    margin-bottom: 3rem;
+    border-radius: var(--border-radius);
+    background: 
+        linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)),
+        url('https://images.unsplash.com/photo-1550063873-ab792580e125?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-lightest);
+    background: -webkit-linear-gradient(45deg, var(--brand), var(--brand-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* --- Upload Section --- */
+.upload-section {
+    margin-bottom: 4rem;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: var(--surface-dark);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+    color: var(--text-lightest);
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-container form p {
+    margin-bottom: 1.5rem;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="url"],
+.form-container input[type="password"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    background-color: #0f172a; /* Slightly darker than surface */
+    color: var(--text-lightest);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+.form-container textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-container .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(45deg, var(--brand), var(--brand-secondary));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.form-container .btn:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Posts Grid --- */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.post-card {
+    background: var(--surface-dark);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+    color: var(--text-lightest);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.post-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.post-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.post-card:hover .post-image::after {
+    opacity: 1;
+}
+
+.post-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-image img {
+    transform: scale(1.05);
+}
+
+.post-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--text-lightest);
+    transition: color var(--transition-speed) ease;
+}
+
+.post-card:hover .post-content h3 {
+    color: var(--brand);
+}
+
+.post-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Remove unwanted line */
+hr {
+    display: none;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .page-header {
+        padding: 2rem 1rem;
+        margin: 1rem 0 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ======================================================
+   SECOND GENERATION REDESIGN (dark neon) 2025-07
+=======================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #0f172a;
+    --surface-dark: #1e293b;
+    --brand: #6366f1;
+    --brand-secondary: #ec4899;
+    --text-lightest: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    background: var(--bg-color) !important;
+    color: var(--text-lightest) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.main-nav {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.main-nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+}
+.logo {
+    color: var(--brand) !important;
+    font-weight: 700;
+}
+.nav-link {
+    color: var(--text-lightest) !important;
+}
+.nav-link:hover {
+    color: var(--brand-secondary) !important;
+}
+
+/* --------------------------------------------------
+   Header buttons (align with home.css)
+---------------------------------------------------*/
+header .main-nav .nav-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+header .main-nav .nav-content a { text-decoration: none; }
+header .main-nav .logo { margin: 0; }
+header .main-nav button {
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
+    color: var(--text-lightest);
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .15s ease;
+}
+header .main-nav button:hover {
+    background: rgba(99,102,241,0.25);
+    border-color: var(--brand);
+    transform: translateY(-1px);
+}
+header .main-nav button:disabled { opacity: .6; cursor: not-allowed; }
+
+.page-header h1 {
+    color: var(--brand) !important;
+}
+.page-header p {
+    color: var(--text-muted) !important;
+}
+
+/* --------------------------------------------------
+   Create New Post form: styled card + dropdown-ready
+   Note: We DO NOT hide it by default to avoid breaking
+   current behavior. If given an id and a trigger link,
+   :target rules below will animate open/close.
+---------------------------------------------------*/
+.page-header form {
+    margin: 1.25rem auto 0;
+    max-width: 720px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    backdrop-filter: blur(6px);
+}
+.page-header form p {
+    margin: 0 0 .75rem 0;
+}
+.page-header form label { color: var(--text-lightest); font-weight: 600; }
+.page-header form input[type="text"],
+.page-header form input[type="file"],
+.page-header form input[type="email"],
+.page-header form input[type="url"],
+.page-header form textarea,
+.page-header form select {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text-lightest);
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+.page-header form input:focus,
+.page-header form textarea:focus,
+.page-header form select:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
+}
+.page-header form button[type="submit"] {
+    margin-top: .5rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: linear-gradient(180deg, rgba(99,102,241,0.25), rgba(99,102,241,0.15));
+    color: var(--text-lightest);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .25s ease, border-color .25s ease, transform .15s ease;
+}
+.page-header form button[type="submit"]:hover {
+    background: linear-gradient(180deg, rgba(99,102,241,0.35), rgba(99,102,241,0.2));
+    border-color: var(--brand);
+    transform: translateY(-1px);
+}
+
+/* Dropdown behavior if an id target is used (non-breaking) */
+/* Example: give the form id="create-post" and add a link <a href="#create-post">New Post</a> */
+.page-header form {
+    transition: max-height .45s ease, opacity .35s ease, transform .35s ease;
+}
+/* Collapsed state would be applied only if you later add a wrapper with a class. Not applied now. */
+.page-header .form-collapsed {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    transform: translateY(-6px);
+    pointer-events: none;
+}
+/* Expand when targeted via hash: #create-post */
+form#create-post:target {
+    max-height: 1200px !important;
+    opacity: 1 !important;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.posts-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 2rem !important;
+}
+.post-card {
+    background: var(--surface-dark) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    color: var(--text-lightest) !important;
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+.post-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.6) !important;
+}
+.post-image img {
+    height: 220px !important;
+    object-fit: cover !important;
+    transition: transform .35s ease;
+}
+.post-card:hover .post-image img {
+    transform: scale(1.08) !important;
+}
+.post-content {
+    padding: 1.5rem !important;
+}
+.post-content h3 {
+    font-size: 1.3rem !important;
+    color: var(--brand) !important;
+}
+.post-content p {
+    color: var(--text-muted) !important;
+}
+
+/* Responsive tweaks for header/form */
+@media (max-width: 768px) {
+    .page-header form { padding: 0.85rem 0.9rem; }
+}

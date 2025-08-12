@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block css_style %}
+    <link rel="stylesheet" href="{% static 'post/css files/home.css' %}">
+{% endblock css_style %}
+
+{% block content_page %}
+{% include "post/includes/headers.html" %}
+<main class="container">
+    
+    <section class="hero">
+        <div class="hero-content">
+            <img src="{% static 'post/images/myself.jpg' %}" alt="Photo of myself" class="profile-img">
+            <div class="hero-text">
+                <h2>Vijayendran</h2>
+                <p class="tagline">Passionate about technology and nature. Sharing my thoughts and experiences through blogging.</p>
+            </div>
+        </div>
+    </section>
+     
+    <section class="latest-posts">
+        
+        <h2 class="section-title">Latest Thoughts</h2>
+        <div class="posts-grid">
+            {% for post in posts %}
+            <a href="{% url 'post' post.slug %}" class="post-card">
+                <div class="post-image">
+                    <img src="{{post.image_name.url}}" alt="Programming">
+                </div>
+                <div class="post-content">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.excerpt}}</p>
+                </div>
+            </a>
+              {% endfor %}
+        </div>
+        {% if user.is_authenticated %}
+        <form action="{% url "logout"%}" method="POST">
+            {% csrf_token %}
+        <button>logout</button>
+        </form>
+        {% else%}
+        <button disabled> login</button>
+        {% endif %}
+
+    </section>
+</main>
+{% endblock content_page %}

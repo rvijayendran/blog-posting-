@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_style %}
+    <link rel="stylesheet" href="{% static 'post/css files/post_page.css' %}">
+{% endblock %}
+
+{% block content_page %}
+{% include "post/includes/headers.html" %}
+<main class="container">
+    <section class="hero">
+        <h1>All Posts</h1>
+        <p>Browse through our collection of articles and thoughts.</p>
+    </section>
+
+    <section class="upload-section">
+        <div class="form-container">
+            <h2>Upload a New Post</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-block">Upload</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="posts-grid">
+        {% for post in posts  %}
+        <a href="{% url 'post' post.slug %}" class="post-card">
+            <div class="post-image">
+                <img src="{{post.image_name.url}}" alt="Programming">
+            </div>
+            <div class="post-content">
+                <h3>{{post.title | title}}</h3>
+                <p>{{post.excerpt}}</p>
+                
+            </div>
+        </a>
+
+{% endfor %}
+
+    </div>
+</main>
+{% endblock %}

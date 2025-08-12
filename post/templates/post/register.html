@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_style %}
+    <link rel="stylesheet" href="{% static 'post/css files/register.css' %}">
+{% endblock css_style %}
+
+{% block content_page %}
+{% include "post/includes/headers.html" %}
+<main class="container">
+    <section class="hero">
+        <div class="hero-content">
+            <img src="{% static 'post/images/myself.jpg' %}" alt="Photo of myself" class="profile-img">
+            <div class="hero-text">
+                <h2>Create an Account</h2>
+                <p class="tagline">Join our community and start your journey with us.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="auth-section">
+        <div class="form-wrapper">
+            <form action="{% url 'register' %}" method="POST" class="auth-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password1.id_for_label }}">Password</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                    {{ form.password2 }}
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <div class="auth-footer">
+                <p>Already have an account? <a href="{% url 'login' %}" class="auth-link">Sign in</a></p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content_page %}
